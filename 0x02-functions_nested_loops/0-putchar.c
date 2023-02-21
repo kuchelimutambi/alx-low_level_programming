@@ -1,13 +1,14 @@
 #include <stdio.h>
 
-*/ Write a program that prints _putchar, followed by a new line. */
+/* Write a program that prints _putchar, followed by a new line. */
 
 
 int main (void)
 
 {
-	_putchar("hello there /n");
-
-	return (0);
+	_putchar('hello ');
+	_putchar('there');
+	_putchar('\n');
+	return(0);
 
 }
