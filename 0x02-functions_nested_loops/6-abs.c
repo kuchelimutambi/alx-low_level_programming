@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * _abs - return the absolute value of a given integer.
  * @i: value use to find the absolute value.
