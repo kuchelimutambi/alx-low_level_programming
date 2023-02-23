@@ -1,6 +1,9 @@
 #include "main.h"
 
-/* Write a program that prints _putchar, followed by a new line. */
+/**
+ * main - print _putcha, followed by new line
+ * Return: 0
+ */
 
 
 int main (void)
