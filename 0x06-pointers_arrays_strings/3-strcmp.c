@@ -8,8 +8,12 @@
  *
  * Return: a pointer to @dest
  */
+<<<<<<< HEAD
 
 int _strcmp(char *s1, char *s2)
+=======
+char *_strncpy(char *s1, char *s2, int n)
+>>>>>>> 047dea238c55152860eb653a01186e5f8e5ab4d7
 {
 	int i = 0;
 
