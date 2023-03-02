@@ -1,22 +1,33 @@
 #include "main.h"
 
 /**
-* is_sep - check if a char is a seperator.
-* @s: the char to test.
-*
-* Return: 1 if seperator is found else 0
-*/
-int is_sep(char s)
+ * cap_string - capitalize first letter of each word
+ * @s: string to manipulate
+ * Return: string
+ */
+
+char *cap_string(char *s)
 {
-	char sep[] = {'\t', '\n', ' ', ',', ';', '!',
-		      '.', '?', '\"', '(', ')', '{', '}'};
 	int i = 0;
 
-	while (sep[i] != '\0')
+	/* check first index for capital */
+	if (s[i] >= 'a' && s[i] <= 'z')
+		s[i] = s[i] - 'a' + 'A';
+	i++;
+
+	while (s[i] != '\0') /* iterate through string */
 	{
-		if (s == sep[i])
-			return (1);
+
+		/* if lowercase and prior char is separator, capitalize*/
+		if ((s[i] >= 'a' && s[i] <= 'z')
+		    && (s[i - 1] == ',' || s[i - 1] == ';' || s[i - 1] == '.' ||
+			s[i - 1] == '!' || s[i - 1] == '?' || s[i - 1] == '"' ||
+			s[i - 1] == '(' || s[i - 1] == ')' || s[i - 1] == '{' ||
+			s[i - 1] == '}' || s[i - 1] == ' ' || s[i - 1] == '\t'
+			|| s[i - 1] == '\n'))
+			s[i] = s[i] - 'a' + 'A';
 		i++;
 	}
-	return (0);
+
+	return (s);
 }
