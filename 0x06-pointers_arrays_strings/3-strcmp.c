@@ -8,7 +8,7 @@
  *
  * Return: a pointer to @dest
  */
-char *_strncpy(char *dest, char *src, int n)
+char *_strncpy(char *s1, char *s2, int n)
 {
 	char s1 = 0;
 
