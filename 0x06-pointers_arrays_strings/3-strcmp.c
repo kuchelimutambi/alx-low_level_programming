@@ -8,14 +8,16 @@
  *
  * Return: a pointer to @dest
  */
-char *_strncpy(char *dest, char *src, int n)
+
+int _strcmp(char *s1, char *s2)
 {
-	char s1 = 0;
+	int i = 0;
 
-	for (s1 = 0; s1 < n && src[s1] != '\0'; s1++)
-		dest[s1] = src[s1];
-	for ( ; s1 < n ; s1++)
-		dest[s1] = '\0';
+	while (*(s1 + i) == *(s2 + i) && *(s1 + i))
+		i++;
 
-	return (dest);
+	if (*(s2 + i))
+		return (*(s1 + i) - *(s2 + i));
+	else
+		return (0);
 }
