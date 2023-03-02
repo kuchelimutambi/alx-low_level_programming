@@ -8,25 +8,22 @@
  *
  * Return: Nothing.
  */
-
 void simple_print_buffer(char *buffer, unsigned int size)
 {
         unsigned int x;
-
         x = 0;
         while (x < size)
         {
                 if (x % 10)
                 {
-                        printf(" ");
+                printf(" ");
                 }
                 if (!(x % 10) && x)
                 {
-                        printf("\n");
+                printf("\n");
                 }
                 printf("0x%02x", buffer[x]);
                 x++;
         }
-  
         printf("\n");
 }
