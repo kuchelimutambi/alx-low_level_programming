@@ -6,25 +6,25 @@
  * and should be large enough to contain the concatenated resulting string.
  * @src: This is the string to be appended. This should not overlap the destination.
  *
- * Return: a pointer to @dest
+ * Return: a pointer to @desk
  */
-char *_strcat(char *dest, char *src)
+
 {
-	char s1 = 0;
-	char s2 = 0;
+	int index_01 = 0;
+	int index_02 = 0;
 
-	while (dest[s1] != '\0')
+	while (dest[index_01] != '\0')
 	{
-		s1++;
+		index_01++;
 	}
 
-	while (src[s2] != '\0')
+	while (src[index_02] != '\0')
 	{
-		dest[s1 + s2] = src[s2];
-		s2++;
+		dest[index_01 + index_02] = src[index_02];
+		index_02++;
 
 	}
-	dest[s1 + s2] = '\0';
+	dest[index_01 + index_02] = '\0';
 
 	return (dest);
 }
