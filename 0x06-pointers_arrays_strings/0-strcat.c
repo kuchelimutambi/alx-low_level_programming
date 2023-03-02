@@ -1,14 +1,13 @@
 #include "main.h"
 
 /**
- * _strcat - appends the string pointed to by src to the end of the string pointed to by dest
- * @dest: This is pointer to the destination array, which should contain a C string, 
- * and should be large enough to contain the concatenated resulting string.
- * @src: This is the string to be appended. This should not overlap the destination.
+ * _strcat - this fuction will concatenates two strings
+ * @dest: the string that will modified.
+ * @src: the string that ill be concatenated to @des.
  *
- * Return: a pointer to @desk
+ * Return: a pointer to @dest
  */
-
+char *_strcat(char *dest, char *src)
 {
 	int index_01 = 0;
 	int index_02 = 0;
