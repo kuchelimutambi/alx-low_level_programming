@@ -8,25 +8,25 @@
  */                                                                                                                                     
 void print_buffer(char *b, int size)                                                                                                    
 {                                                                                                                                       
-        int byte, index_01;
+        int byte, index;
         
         for (byte = 0; byte < size; byte += 10)                                                                                         
         {                                                                                                                               
                 printf("%08x: ", byte);                                                                                                 
-                for (index_01 = 0; index_01 < 10; index_01++)                                                                                    
+                for (index = 0; index < 10; index++)                                                                                    
                 {                                                                                                                       
-                        if ((index_01 + byte) >= size)                                                                                     
+                        if (( + byte) >= size)                                                                                     
                                 printf("  ");                                                                                           
                          else                                                                                                            
-                                printf("%02x", *(b + index_01 + byte));                                                                    
-                        if ((index_01 % 2) != 0 && index_01 != 0)                                                                             
+                                printf("%02x", *(b +  + byte));                                                                    
+                        if ((index % 2) != 0 && index != 0)                                                                             
                                 printf(" ");                                                                                            
                 }                                                                                                                       
-                for (index_01 = 0; index_01 < 10; index_01++)                                                                                    
+                for (index = 0; index < 10; index++)                                                                                    
                 {                                                                                                                       
-                        if ((index_01 + byte) >= size)                                                                                     
-                else if (*(b + index_01 + byte) >= 31 && *(b + index_01 + byte) <= 126)                                                                            
-                                printf("%c", *(b + index_01 + byte));                                                                      
+                        if ((index + byte) >= size)                                                                                     
+                else if (*(b + index + byte) >= 31 && *(b + index + byte) <= 126)                                                                            
+                                printf("%c", *(b + index + byte));                                                                      
                 else                                                                                                            
                                 printf(".");                                                                                            
                 }                                                                                                                       
