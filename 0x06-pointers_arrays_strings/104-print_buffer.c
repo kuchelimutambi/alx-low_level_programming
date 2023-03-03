@@ -1,51 +1,41 @@
-#include "main.h"                                                                                                                       
-#include <stdio.h>                                                                                                                      
-                                                                                                                                        
-/**                                                                                                                                     
- * print_buffer - This command prints the current buffer.                                                                                 
- * @b: The buffer to be printed.                                                                                                        
- * @size: The number of bytes to be printed from the buffer.                                                                            
- */                                                                                                                                     
-void print_buffer(char *b, int size)                                                                                                    
-{                                                                                                                                       
-      {
-	int o, j, i;
-
-	o = 0;
+#include "main.h"
+#include <stdio.h>
+/**
+ * print_buffer - function that prints a buffer.
+ * @b: input
+ * @size: input
+ * Return: output
+ */
+void print_buffer(char *b, int size)
+{
+	int i, j, k, f;
 
 	if (size <= 0)
 	{
 		printf("\n");
 		return;
 	}
-	while (o < size)
+	for (i = 0; i < size; i += 10)
 	{
-		j = size - o < 10 ? size - o : 10;
-		printf("%08x: ", o);
-		for (i = 0; i < 10; i++)
+		printf("%08x: ", i);
+		for (j = i; j < i + 10; j += 2)
 		{
-			if (i < j)
-				printf("%02x", *(b + o + i));
-			else
-				printf("  ");
-			if (i % 2)
-			{
-				printf(" ");
-			}
+			for (k = j; k <= j + 1; k++)
+				if ((b[k] != 0) && (k < size))
+					printf("%02x", b[k]);
+				else if (k < size)
+					printf("%02x", 0);
+				else
+					printf("  ");
+			printf(" ");
 		}
-	}
-		for (i = 0; i < j; i++)
+		for (f = i; f < i + 10; f++)
 		{
-			int c = *(b + o + i);
-
-			if (c < 32 || c > 132)
-			{
-				c = '.';
-			}
-			printf("%c", c);
+			if ((b[f] >= 32 && b[f] <= 126) && (f < size))
+				printf("%c", b[f]);
+			else if (f < size)
+				printf("%c", '.');
 		}
 		printf("\n");
-		o += 10;
 	}
 }
- 
