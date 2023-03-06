@@ -1,29 +1,41 @@
-#include <stdio.h>
 #include "main.h"
-
+#include <stdio.h>
 /**
- * simple_print_buffer - THis prints buffer in hexa
- * @buffer: This is the address of memory to print
- * @size: this is the size of the memory to print
- *
- * Return: Nothing.
+ * print_buffer - function that prints a buffer.
+ * @b: input
+ * @size: input
+ * Return: output
  */
-void simple_print_buffer(char *buffer, unsigned int size)
+void print_buffer(char *b, int size)
 {
-        unsigned int x;
-        x = 0;
-        while (x < size)
-        {
-                if (x % 10)
-                {
-                printf(" ");
-                }
-                if (!(x % 10) && x)
-                {
-                printf("\n");
-                }
-                printf("0x%02x", buffer[x]);
-                x++;
-        }
-        printf("\n");
+	int i, j, k, f;
+
+	if (size <= 0)
+	{
+		printf("\n");
+		return;
+	}
+	for (i = 0; i < size; i += 10)
+	{
+		printf("%08x: ", i);
+		for (j = i; j < i + 10; j += 2)
+		{
+			for (k = j; k <= j + 1; k++)
+				if ((b[k] != 0) && (k < size))
+					printf("%02x", b[k]);
+				else if (k < size)
+					printf("%02x", 0);
+				else
+					printf("  ");
+			printf(" ");
+		}
+		for (f = i; f < i + 10; f++)
+		{
+			if ((b[f] >= 32 && b[f] <= 126) && (f < size))
+				printf("%c", b[f]);
+			else if (f < size)
+				printf("%c", '.');
+		}
+		printf("\n");
+	}
 }

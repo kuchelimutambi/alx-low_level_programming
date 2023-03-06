@@ -1,37 +1,20 @@
-#include "main.h"
-#include <stdio.h>
-
+ #include "main.h"
 /**
- * print_number - prints the number
- * @n: the number to be processed
- *
+ * print_number - function that prints an integer.
+ * @n: input
  */
-
 void print_number(int n)
 {
-	unsigned int tens, digit, positive = n;
-	double t_beg = 1;
+	unsigned int a = n;
 
-	if (n == 0)
-		_putchar('0');
-	else
+	if (n < 0)
 	{
-		if (n < 0)
-		{
-			positive = n * -1;
-			_putchar('-');
-		}
-
-		while (t_beg <= positive)
-			t_beg *= 10;
-		tens = t_beg / 10;
-
-		while (tens >= 1)
-		{
-			digit = positive / tens;
-			_putchar(digit + '0');
-			positive = (positive - (tens * digit));
-			tens /= 10;
-		}
+		_putchar('-');
+		a = -a;
 	}
+	if (a / 10)
+	{
+		print_number(a / 10);
+	}
+	_putchar(a % 10 + '0');
 }
