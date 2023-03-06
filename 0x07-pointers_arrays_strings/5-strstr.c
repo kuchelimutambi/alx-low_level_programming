@@ -1,4 +1,5 @@
 #include "holberton.h"
+#define NULL 0
 
 /**
  * _strstr - locate and return pointer to first occurence of substring
@@ -9,23 +10,31 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-  int i;
-	int j;
-	int k = 0;
+	int i = 0, j, x;
 
-	for (i = 0; haystack[i] != '\0'; i++)
+	if (needle[0] == '\0')
+		return (haystack);
+
+	while (haystack[i] != '\0') /* iterate through haystack */
 	{
-		j = 0;
-		k = i;
-		while (haystack[k] == needle[j] && needle[j] != '\0')
+		/* if a byte matches first char of needle */
+		/* interate through needle until match ends */
+		if (haystack[i] == needle[0])
 		{
-			j++;
-			k++;
+			x = i, j = 0;
+			while (needle[j] != '\0')
+			{
+				if (haystack[x] == needle[j])
+					x++, j++;
+				else
+					break;
+			} /* if matched throughout, return haystack */
+			if (needle[j] == '\0')
+			{
+				return (haystack + i);
+			}
 		}
-		if (needle[j] == '\0')
-		{
-			return (haystack + i);
-		}
+		i++;
 	}
-	return (0);
+	return (NULL); /* No match */
 }
