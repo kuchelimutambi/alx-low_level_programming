@@ -9,5 +9,5 @@
 
 int is_prime_number(int n)
 {
-	return (is_prime_number_aux(n, 2));
+	return (is_prime_number(n, 2));
 }
