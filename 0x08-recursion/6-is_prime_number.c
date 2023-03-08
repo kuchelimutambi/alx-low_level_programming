@@ -9,13 +9,10 @@
 
 int is_prime(int n, int divisor)
 {
-  if (n <= 1 || (n != x && n % x == 0))
-	{
-		return (0);
-	}
-	else if (n == x)
-	{
+	if (n == divisor)
 		return (1);
-	}
-	return (is_prime_number_aux(n, x + 1));
+	if (n % divisor == 0)
+		return (0);
+	return (is_prime(n, divisor + 1));
+
 }
