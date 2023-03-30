@@ -1,12 +1,25 @@
 #include <stdio.h>
 
 /**
- * execute_before_main - executes this function before main function
- * Note: made possible by prior declaration of "__attribute__ ((constructor))"
+ * print_intro - prints the intro message
  */
-
-void __attribute__ ((constructor)) execute_before_main()
+void print_intro(void)
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");
+}
+
+/**
+ * main - entry point of the program
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	// Call the print_intro() function before executing the main code
+	print_intro();
+
+	// Rest of the program
+	printf("Main function executed!\n");
+	return (0);
 }
