@@ -25,7 +25,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	 * Shift the number right by the
 	 * index and extract the bit at the end
 	 */
-	int bit = ((n >> index) & 1);
+	bit = ((n >> index) & 1);
 
 	return (bit);
 }
