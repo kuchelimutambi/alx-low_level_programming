@@ -6,20 +6,19 @@
  * @m: number2
  * Return: how many bits differ
  */
+
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int diff_bits = 0;
-	unsigned long int difference;
+    unsigned int diff_bits = 0;
+    unsigned long int difference = n ^ m;
 
-	/* Xor both nums to show bit 1 if different bits */
-	difference = n ^ m;
+    // Count the number of bits that are different
+    while (difference > 0)
+    {
+        if (difference & 1)
+            diff_bits++;
+        difference >>= 1;
+    }
 
-	/* keep shifting difference to right and tallying the ones up */
-	do {
-		diff_bits += (difference & 1);
-		difference >>= 1;
-	} while
-		(difference > 0);
-
-	return (diff_bits);
+    return diff_bits;
 }
