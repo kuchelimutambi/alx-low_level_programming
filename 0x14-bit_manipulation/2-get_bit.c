@@ -8,17 +8,21 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-    unsigned int max_bits;
+	unsigned int max_bits;
+	/**
+	 * Validate that the index is within the
+	 * range of bits in an unsigned long int
+	 */
+	max_bits = (sizeof(unsigned long int) * 8);
+	if (index >= max_bits)
+	{
+		return (-1);
+	}
+	/**
+	 * Shift the number right by the
+	 * index and extract the bit at the end
+	 */
+	int bit = ((n >> index) & 1);
 
-    /* Validate that the index is within the range of bits in an unsigned long int */
-    max_bits = (sizeof(unsigned long int) * 8);
-    if (index >= max_bits)
-    {
-        return (-1);
-    }
-
-    /* Shift the number right by the index and extract the bit at the end */
-    int bit = ((n >> index) & 1);
-
-    return (bit);
+	return (bit);
 }
