@@ -10,7 +10,6 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	int bit;
 	unsigned int max_bits;
-	
 	/**
 	 * Validate that the index is within the
 	 * range of bits in an unsigned long int
@@ -20,7 +19,6 @@ int get_bit(unsigned long int n, unsigned int index)
 	{
 		return (-1);
 	}
-	
 	/**
 	 * Shift the number right by the
 	 * index and extract the bit at the end
