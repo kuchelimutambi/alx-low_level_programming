@@ -1,21 +1,17 @@
 #include "main.h"
-#include <string.h>
-#include <ctype.h>
 
 /**
  * binary_to_uint - Convert a binary string to an unsigned integer
- *
  * @b: The binary string to convert
- *
  * Return: The unsigned integer result of the conversion, or 0 if b is NULL
  */
+ 
 unsigned int binary_to_uint(const char *b)
 {
 	int len = 0, i;
 	unsigned int sum = 0;
 
 	if (b == NULL)
-<<<<<<< HEAD
     	{
         return (0);
     	}
@@ -41,7 +37,7 @@ unsigned int binary_to_uint(const char *b)
     	}	
 
     	return (result);
-=======
+
 	return (sum);
 
 	/* Find string length */
@@ -63,5 +59,5 @@ unsigned int binary_to_uint(const char *b)
 	}
 
 	return (sum);
->>>>>>> 71e9292bbdce37ebcebee1489331d008106db6e9
+
 }
