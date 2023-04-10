@@ -1,6 +1,21 @@
 #include "main.h"
 
 /**
+ * _strlen - find length of string
+ * @str: string
+ * Return: length
+ */
+int _strlen(char *str)
+{
+	int len;
+
+	for (len = 0; str[len] != '\0'; len++)
+		;
+
+	return (len);
+}
+
+/**
  * create_file - creates file with permissions rw------- and writes content in
  * if file already exists, don't change permissions and just truncate it
  * @filename: name to give to new file
@@ -9,30 +24,32 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-    int fd, n_wrote, len = 0;
+	int fd;
+	int n_wrote;
 
-    if (filename == NULL)
-        return (-1);
+	if (!filename)
+		return (-1);
 
-    /* open file for writing, truncating it if it exists */
-    fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-    if (fd == -1)
-        return (-1);
+	/* create with permissions if file doesn't exist, else truncate */
+	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+	if (fd == -1)
+		return (-1);
 
-    if (text_content != NULL)
-        len = _strlen(text_content);
+	/* if nothing to write, just return newly created file */
+	if (!text_content)
+	{
+		close(fd);
+		return (1);
+	}
 
-    /* write content if provided */
-    if (len > 0)
-    {
-        n_wrote = write(fd, text_content, len);
-        if (n_wrote == -1 || n_wrote != len)
-        {
-            close(fd);
-            return (-1);
-        }
-    }
+	/* write */
+	n_wrote = write(fd, text_content, _strlen(text_content));
+	if (n_wrote == -1 || n_wrote != _strlen(text_content))
+	{
+		close(fd);
+		return (-1);
+	}
 
-    close(fd);
-    return (1);
+	close(fd);
+	return (1);
 }
