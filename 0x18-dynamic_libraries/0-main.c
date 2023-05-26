@@ -3,7 +3,7 @@
 
 /**
  * main - check the code
- *
+ * -strlen - function used to calculate the length of a null-terminated string
  * Return: Always EXIT_SUCCESS.
  */
 int main(void)
